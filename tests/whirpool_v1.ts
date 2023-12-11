@@ -7,7 +7,7 @@ import {
 import { DecimalUtil, Percentage } from "@orca-so/common-sdk";
 
 // Environment variables must be defined before script execution
-// ANCHOR_PROVIDER_URL=https://api.devnet.solana.com
+// ANCHOR_PROVIDER_URL=https://api.mainnet-beta.solana.com
 // ANCHOR_WALLET=wallet.json
 // WHIRLPOOL_POSITION=address_of_position
 
@@ -56,26 +56,26 @@ async function main() {
     slippageTolerance: slippage,
   });
 
-  // Output the estimation
-  console.log("devSAMO min output:", DecimalUtil.fromBN(quote.tokenMinA, token_a.decimals).toFixed(token_a.decimals));
-  console.log("devUSDC min output:", DecimalUtil.fromBN(quote.tokenMinB, token_b.decimals).toFixed(token_b.decimals));
+  // // Output the estimation
+  // console.log("devSAMO min output:", DecimalUtil.fromBN(quote.tokenMinA, token_a.decimals).toFixed(token_a.decimals));
+  // console.log("devUSDC min output:", DecimalUtil.fromBN(quote.tokenMinB, token_b.decimals).toFixed(token_b.decimals));
 
-  // Output the liquidity before transaction execution
-  console.log("liquidity(before):", position.getData().liquidity.toString());
+  // // Output the liquidity before transaction execution
+  // console.log("liquidity(before):", position.getData().liquidity.toString());
 
-  // Create a transaction
-  const decrease_liquidity_tx = await position.decreaseLiquidity(quote);
+  // // Create a transaction
+  // const decrease_liquidity_tx = await position.decreaseLiquidity(quote);
 
-  // // Send the transaction
-  // const signature = await decrease_liquidity_tx.buildAndExecute();
-  // console.log("signature:", signature);
+  // // // Send the transaction
+  // // const signature = await decrease_liquidity_tx.buildAndExecute();
+  // // console.log("signature:", signature);
 
-  // // Wait for the transaction to complete
-  // const latest_blockhash = await ctx.connection.getLatestBlockhash();
-  // await ctx.connection.confirmTransaction({signature, ...latest_blockhash}, "confirmed");
+  // // // Wait for the transaction to complete
+  // // const latest_blockhash = await ctx.connection.getLatestBlockhash();
+  // // await ctx.connection.confirmTransaction({signature, ...latest_blockhash}, "confirmed");
 
-  // // Output the liquidity after transaction execution
-  // console.log("liquidity(after):", (await position.refreshData()).liquidity.toString());
+  // // // Output the liquidity after transaction execution
+  // // console.log("liquidity(after):", (await position.refreshData()).liquidity.toString());
 }
 
 main();
